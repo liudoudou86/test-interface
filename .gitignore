@@ -1,0 +1,6 @@
+.idea/
+src/main/resources/config/
+src/main/java/com/qa/mapper/vo/
+src/main/java/com/qa/model/sql/
+target/
+.gitlab-ci.yml

@@ -1,0 +1,10 @@
+logging:
+  config: classpath:log4j2-spring.xml
+server:
+  port: 3000
+  address: localhost
+#  port: 40000
+#  address: 10.6.0.116
+spring:
+  application:
+    name: test-interface
