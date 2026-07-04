@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
- * @Author LiuZhen
+ * @Author Tesla.liu
  * @Date 2023/04/18
  * @Description 运营平台接口处理
  */
@@ -99,6 +99,26 @@ public class CreditOperationApi {
 
 		SerenityRest.given()
 				.baseUri(mgmtBaseUrl).basePath("/v1/credit/temp-credit/approval")
+				.contentType(ContentType.JSON)
+				.headers(ImmutableMap.of("ACCESS-TOKEN", loginSystemGetToken(),
+						"signature", "88888888"))
+				.body(oaApprovalDTO).log().all()
+				.when().post()
+				.then().log().all()
+				.statusCode(200)
+				.body("resultCode", Matchers.equalTo("0"), "resultMsg", Matchers.equalTo("success"))
+				.extract().response();
+	}
+
+	/**
+	 * 大批件临时信用申请OA审批
+	 *
+	 * @param oaApprovalDTO OA审批报文
+	 */
+	public void largeTemporaryCreditOaApproval(OaApprovalDTO oaApprovalDTO) {
+
+		SerenityRest.given()
+				.baseUri(mgmtBaseUrl).basePath("/v1/workflow/call/credit/complete/bulk_approval")
 				.contentType(ContentType.JSON)
 				.headers(ImmutableMap.of("ACCESS-TOKEN", loginSystemGetToken(),
 						"signature", "88888888"))

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * @Author LiuZhen
+ * @Author Tesla.liu
  * @Date 2024/08/13
  * @Description
  */
@@ -50,6 +50,20 @@ public class ApprovalStreamImpl implements ApprovalStreamService {
 	public void temporaryCreditOaApproval(String applicationNo) {
 		creditOperationApi.temporaryCreditOaApproval(OaApprovalDTO.builder()
 				.applicationNo(applicationNo)
+				.approvalResult("1")
+				.build());
+	}
+
+
+	/**
+	 * 大批件临时信用申请OA审批
+	 *
+	 * @param largeApplicationNo 大批件临时信用批件号
+	 */
+	@Override
+	public void largeTemporaryCreditOaApproval(String largeApplicationNo) {
+		creditOperationApi.largeTemporaryCreditOaApproval(OaApprovalDTO.builder()
+				.applicationNo(largeApplicationNo)
 				.approvalResult("1")
 				.build());
 	}

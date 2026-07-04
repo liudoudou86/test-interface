@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @Author LiuZhen
+ * @Author Tesla.liu
  * @Date 2024/08/13
  * @Description
  */
@@ -42,6 +42,22 @@ public class OaApprovalStreamController {
 	})
 	public Response<Void> oaApprovalTemporary(String applicationNo) {
 		approvalStreamService.temporaryCreditOaApproval(applicationNo);
+		return Response.success();
+	}
+
+	/**
+	 * 大批件临时信用申请OA审批
+	 *
+	 * @param largeApplicationNo 大批件临时信用批件号
+	 * @return 处理结果
+	 */
+	@GetMapping(value = "/approvalLargeTemporary")
+	@ApiOperation(value = "大批件临时信用申请OA审批", notes = "大批件临时信用申请OA审批")
+	@ApiImplicitParams(value = {
+			@ApiImplicitParam(name = "largeApplicationNo", value = "大批件临时信用批件号", dataType = "String", required = true)
+	})
+	public Response<Void> oaApprovalLargeTemporary(String largeApplicationNo) {
+		approvalStreamService.largeTemporaryCreditOaApproval(largeApplicationNo);
 		return Response.success();
 	}
 

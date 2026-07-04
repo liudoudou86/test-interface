@@ -1,7 +1,7 @@
 package com.qa.service;
 
 /**
- * @Author LiuZhen
+ * @Author Tesla.liu
  * @Date 2024/08/13
  * @Description
  */
@@ -14,6 +14,14 @@ public interface ApprovalStreamService {
 	 * @param applicationNo 批件号
 	 */
 	void temporaryCreditOaApproval(String applicationNo);
+
+
+	/**
+	 * 大批件临时信用申请OA审批
+	 *
+	 * @param largeApplicationNo 大批件临时信用批件号
+	 */
+	void largeTemporaryCreditOaApproval(String largeApplicationNo);
 
 
 	/**
